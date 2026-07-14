@@ -4,7 +4,6 @@ from aiogram import Bot, Dispatcher, types
 from aiogram.filters import CommandStart
 from aiogram.types import InlineKeyboardMarkup, InlineKeyboardButton, WebAppInfo
 
-# Sizning Bot Tokeningiz va Vercel havolangiz
 BOT_TOKEN = "8640815581:AAH6bOE98p9F0vHLNukp_R3G69y2xWAUOto"
 WEBAPP_URL = "https://magazine-rbor.vercel.app/login"
 
@@ -15,7 +14,6 @@ dp = Dispatcher()
 
 @dp.message(CommandStart())
 async def cmd_start(message: types.Message):
-    # Telegram ichida chiroyli oyna bo'lib ochiladigan WebApp tugmasi
     keyboard = InlineKeyboardMarkup(
         inline_keyboard=[
             [
@@ -26,12 +24,14 @@ async def cmd_start(message: types.Message):
             ]
         ]
     )
-    
-    # Bu yerda reply_markup=keyboard deb xatolik to'g'rilandi
     await message.answer("Hello. Welcome to the Pollwon app.", reply_markup=keyboard)
 
 async def main():
-    print("Bot muvaffaqiyatli ishga tushdi va faol holatda!")
+    # MUHIM: Har safar bot ishga tushganda eski webhook'ni o'chirib tashlaymiz
+    # Bu TelegramConflictError xatosini butunlay yo'q qiladi
+    await bot.delete_webhook(drop_pending_updates=True)
+    
+    print("Bot muvaffaqiyatli ishga tushdi!")
     await dp.start_polling(bot)
 
 if __name__ == "__main__":
