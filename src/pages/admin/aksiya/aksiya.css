@@ -1,0 +1,348 @@
+/* ==========================================================================
+   📦 1. UMUMIY KONTEYNER VA RESPONSIVE
+   ========================================================================== */
+   .aksiya-container {
+    padding: 24px;
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    box-sizing: border-box;
+  }
+  
+  @media (min-width: 1201px) {
+    .aksiya-container {
+      margin-left: 20px;
+    }
+  }
+  
+  /* ==========================================================================
+     📝 2. KARTALAR VA INPUTLAR
+     ========================================================================== */
+  .aksiya-card {
+    padding: 24px;
+    background: #ffffff;
+    border-radius: 16px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.03);
+    border: 1px solid #f1f5f9;
+  }
+  
+  .aksiya-card-title {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin: 0 0 8px 0;
+    color: #1e293b;
+    font-size: 18px;
+    font-weight: 700;
+  }
+  
+  .aksiya-card-desc {
+    color: #64748b;
+    font-size: 14px;
+    margin: 0 0 24px 0;
+    line-height: 1.5;
+  }
+  
+  .aksiya-form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+  
+  .input-group {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+  
+  .input-group label {
+    font-size: 14px;
+    font-weight: 600;
+    color: #334155;
+  }
+  
+  .input-group input {
+    padding: 14px 16px;
+    border-radius: 10px;
+    border: 1px solid #cbd5e1;
+    font-size: 15px;
+    outline: none;
+    color: #0f172a;
+    background-color: #ffffff;
+    transition: border-color 0.2s, box-shadow 0.2s;
+    width: 100%;
+    box-sizing: border-box;
+    margin: 5px 0px;
+  }
+  
+  .input-group input:focus {
+    border-color: #2563eb;
+    box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.12);
+  }
+  
+  .file-input-style {
+    padding: 10px !important;
+    background: #f8fafc !important;
+    cursor: pointer;
+    border: 1px dashed #cbd5e1 !important;
+  }
+  
+  .dates-row {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+  }
+  
+  .flex-1 {
+    flex: 1;
+    min-width: 260px;
+  }
+  
+  /* ==========================================================================
+     📊 3. JADVAL, BADGE VA TUGMALAR ELEMENTLARI
+     ========================================================================== */
+  .custom-table-wrapper {
+    margin-top: 15px;
+    overflow-x: auto;
+    border-radius: 10px;
+    border: 1px solid #e2e8f0;
+  }
+  
+  .custom-table {
+    width: 100%;
+    border-collapse: collapse;
+    min-width: 650px;
+    text-align: left;
+  }
+  
+  .custom-table th {
+    background: #f8fafc;
+    border-bottom: 2px solid #e2e8f0;
+    padding: 14px;
+    color: #475569;
+    font-weight: 600;
+  }
+  
+  .custom-table td {
+    padding: 14px;
+    border-bottom: 1px solid #f1f5f9;
+    vertical-align: middle;
+  }
+  
+  .custom-table tbody tr:hover {
+    background-color: #f8fafc;
+  }
+  
+  .time-cell {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    color: #334155;
+    font-size: 14px;
+  }
+  
+  .btn-submit {
+    width: max-content;
+    padding: 12px 28px;
+    background: #10b981;
+    color: #ffffff;
+    border: none;
+    border-radius: 10px;
+    font-size: 15px;
+    font-weight: 600;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    box-shadow: 0 4px 6px -1px rgba(16, 185, 129, 0.15);
+    transition: background 0.2s;
+  }
+  
+  .btn-submit:hover:not(:disabled) {
+    background: #059669;
+  }
+  
+  .btn-delete {
+    background: none;
+    border: none;
+    color: #ef4444;
+    cursor: pointer;
+    font-size: 16px;
+    padding: 8px;
+    border-radius: 8px;
+    transition: background 0.2s;
+  }
+  
+  .btn-delete:hover {
+    background: #fee2e2;
+  }
+  
+  .badge {
+    padding: 6px 12px;
+    border-radius: 20px;
+    font-size: 13px;
+    font-weight: 600;
+    display: inline-block;
+  }
+  .badge-waiting { background: #f1f5f9; color: #64748b; }
+  .badge-active { background: #dcfce7; color: #16a34a; }
+  .badge-ended { background: #fee2e2; color: #dc2626; }
+  
+  /* ==========================================================================
+     🖼️ 4. JADVALDAGI RASMLAR UCHUN STYLES
+     ========================================================================== */
+  .table-campaign-img {
+    width: 44px;
+    height: 44px;
+    object-fit: cover;
+    border-radius: 8px;
+    border: 1px solid #e2e8f0;
+    display: block;
+  }
+  
+  .table-campaign-no-img {
+    width: 44px;
+    height: 44px;
+    background: #f1f5f9;
+    color: #94a3b8;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 8px;
+    font-size: 18px;
+    border: 1px dashed #cbd5e1;
+  }
+  
+  /* ==========================================================================
+     🔴 5. LIGHT-MODE MODAL STYLES (KOD GENERATOR PANEL BILAN BIR XIL)
+     ========================================================================== */
+  .modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(15, 23, 42, 0.4);
+    backdrop-filter: blur(4px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 999999;
+    padding: 20px;
+    box-sizing: border-box;
+  }
+  
+  .modal-container {
+    background: #ffffff;
+    width: 100%;
+    max-width: 440px;
+    border-radius: 20px;
+    padding: 32px;
+    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+    text-align: center;
+    box-sizing: border-box;
+  }
+  
+  .modal-icon-wrapper {
+    width: 56px;
+    height: 56px;
+    background: #fee2e2;
+    color: #ef4444;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 20px auto;
+  }
+  
+  .modal-container h3 {
+    margin: 0 0 10px 0;
+    color: #0f172a;
+    font-size: 20px;
+    font-weight: 700;
+  }
+  
+  .modal-container p {
+    margin: 0 0 24px 0;
+    color: #475569;
+    font-size: 14.5px;
+    line-height: 1.5;
+  }
+  
+  .modal-buttons-group {
+    display: flex;
+    gap: 12px;
+  }
+  
+  .modal-confirm-btn {
+    flex: 1;
+    padding: 12px 20px;
+    background: #ef4444;
+    border: none;
+    color: #ffffff;
+    border-radius: 10px;
+    font-size: 15px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.2s;
+  }
+  
+  .modal-confirm-btn:hover:not(:disabled) {
+    background: #dc2626;
+  }
+  
+  .modal-cancel-btn {
+    flex: 1;
+    padding: 12px 20px;
+    background: #f1f5f9;
+    border: none;
+    color: #334155;
+    border-radius: 10px;
+    font-size: 15px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.2s;
+  }
+  
+  .modal-cancel-btn:hover:not(:disabled) {
+    background: #e2e8f0;
+  }
+  
+  .modal-confirm-btn:disabled, .modal-cancel-btn:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+  }
+  
+  /* Modal ochilish animatsiyasi */
+  .animate-pop {
+    animation: modalPop 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+  
+  @keyframes modalPop {
+    from {
+      transform: scale(0.96);
+      opacity: 0;
+    }
+    to {
+      transform: scale(1);
+      opacity: 1;
+    }
+  }
+  
+  /* ==========================================================================
+     📱 6. MOBIL RESPONSIVE
+     ========================================================================== */
+  @media (max-width: 768px) {
+    .dates-row {
+      flex-direction: column;
+      gap: 12px;
+    }
+    .btn-submit {
+      width: 100%;
+      justify-content: center;
+    }
+    .modal-buttons-group {
+      flex-direction: column-reverse;
+    }
+  }

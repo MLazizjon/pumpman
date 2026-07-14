@@ -1,0 +1,428 @@
+/* ==========================================
+   PROFIL SOZLAMALARI (SETTINGS) ASOSIY STILLARI
+   ========================================== */
+
+   .settings-tab-wrapper {
+    width: 100%;
+    max-width: 550px;
+    margin: 0 auto;
+    padding: 16px;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    box-sizing: border-box;
+  }
+  
+  /* 1. Header qismi */
+  .settings-tab-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 24px;
+    gap: 12px;
+  }
+  
+  .settings-back-arrow {
+    background: none;
+    border: none;
+    color: #334155;
+    cursor: pointer;
+    padding: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    transition: background 0.2s ease;
+    flex-shrink: 0;
+  }
+  
+  .settings-back-arrow:hover {
+    background-color: #f1f5f9;
+  }
+  
+  .settings-tab-header h2 {
+    font-size: 20px;
+    font-weight: 700;
+    color: #0f172a;
+    margin: 0;
+    text-align: center;
+    flex-grow: 1;
+  }
+  
+  /* 2. Asosiy Profil Kartasi (Main Card) */
+  .settings-main-card {
+    background-color: #ffffff;
+    border-radius: 16px;
+    padding: 24px;
+    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.04);
+    border: 1px solid #e2e8f0;
+    margin-bottom: 20px;
+    box-sizing: border-box;
+  }
+  
+  /* Avatar va foydalanuvchi ma'lumotlari qismi */
+  .settings-user-profile-summary {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    margin-bottom: 28px;
+  }
+  
+  .settings-large-avatar {
+    position: relative;
+    width: 88px;
+    height: 88px;
+    background-color: #f0f4f9; 
+    color: #adc2d6; 
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  /* Avatardagi kichik kamera tugmasi */
+  .avatar-edit-badge {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    background-color: #202124;
+    color: #ffffff;
+    border: 2px solid #ffffff;
+    border-radius: 50%;
+    width: 28px;
+    height: 28px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    transition: transform 0.2s;
+  }
+  
+  .avatar-edit-badge:hover {
+    transform: scale(1.1);
+  }
+  
+  .settings-user-profile-summary h3 {
+    margin: 12px 0 4px 0;
+    font-size: 18px;
+    color: #1e293b;
+    font-weight: 600;
+  }
+  
+  .settings-user-phone {
+    margin: 0;
+    font-size: 14px;
+    color: #64748b;
+  }
+  
+  /* Input va Dropdown Bloklari */
+  .settings-input-block {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 20px;
+    position: relative; /* Ro'yxat aynan shu blok ostidan ochilishi uchun shart */
+    width: 100%;
+  }
+  
+  .settings-input-block label {
+    font-size: 14px;
+    font-weight: 600;
+    color: #475569;
+    margin-bottom: 8px;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+  }
+  
+  .form-icon-accent {
+    color: #2563eb;
+  }
+  
+  /* Standart Matnli Input va Til tanlash Selecti */
+  .settings-input-block input,
+  .settings-input-block > select {
+    width: 100%;
+    height: 52px;
+    padding: 0 16px;
+    font-size: 15px;
+    border-radius: 12px;
+    border: 1px solid #e2e8f0;
+    background-color: #f1f3f4;
+    color: #202124;
+    outline: none;
+    transition: all 0.2s ease;
+    box-sizing: border-box;
+  
+    /* Standart select brauzer o'qchalarini o'chirish */
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+  }
+  
+  .settings-input-block select::-ms-expand {
+    display: none; /* Internet Explorer uchun standart o'qchani o'chirish */
+  }
+  
+  /* Tizim tili selectiga o'zimizning maxsus yengil o'qchani berish (agar u oddiy select bo'lsa) */
+  .settings-input-block > select {
+    background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23475569' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6 9 12 15 18 9'%3e%3c/polyline%3e%3c/svg%3e");
+    background-repeat: no-repeat;
+    background-position: right 16px center;
+    background-size: 14px;
+    padding-right: 40px;
+  }
+  
+  .settings-input-block input:focus,
+  .settings-input-block > select:focus {
+    border-color: #2563eb;
+    background-color: #ffffff;
+    box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
+  }
+  
+  
+  /* ==========================================
+     SHAXSIY (CUSTOM) DROPDOWN ELEMENTLARI
+     ========================================== */
+  
+  /* Dropdown bosiladigan asosiy qismi (Trigger) */
+  .custom-select-trigger {
+    width: 100%;
+    height: 52px;
+    padding: 0 16px;
+    font-size: 15px;
+    border-radius: 12px;
+    border: 1px solid #e2e8f0;
+    background-color: #f1f3f4;
+    color: #202124;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    cursor: pointer;
+    user-select: none;
+    box-sizing: border-box;
+    transition: all 0.2s ease;
+  
+    /* Har qanday brauzer default o'qchalarini tozalash */
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+  }
+  
+  /* Dropdown ochiq holatidagi trigger uslubi */
+  .custom-select-trigger.open {
+    border-color: #cbd5e1;
+    background-color: #f1f3f4;
+  }
+  
+  /* Viloyat tanlanmagan holatda tuman blokini bloklash */
+  .disabled-block {
+    opacity: 0.6;
+  }
+  
+  .custom-select-trigger.disabled {
+    cursor: not-allowed;
+  }
+  
+  /* PASTGA OCHILADIGAN RO'YXAT (OPTIONS MENU) */
+  .custom-select-options {
+    position: absolute;
+    top: 82px; /* Label va Triggerni hisobga olgan holda aniq masofa */
+    left: 0;
+    width: 100%;
+    background-color: #ffffff;
+    border-radius: 12px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+    border: 1px solid #e2e8f0;
+    z-index: 999; /* Ro'yxat boshqa hamma narsaning ustiga chiqishi shart */
+    max-height: 240px; /* Ko'p element bo'lsa scroll hosil bo'ladi */
+    overflow-y: auto;
+    padding: 6px 0;
+    box-sizing: border-box;
+  }
+  
+  /* Ro'yxat ichidagi har bir qator (Variant) */
+  .custom-option {
+    padding: 12px 16px;
+    font-size: 15px;
+    color: #334155;
+    cursor: pointer;
+    transition: background-color 0.15s ease, color 0.15s ease;
+  }
+  
+  /* Sichqoncha ustiga kelganda */
+  .custom-option:hover {
+    background-color: #f1f5f9;
+    color: #0f172a;
+  }
+  
+  /* Tanlangan tuman yoki viloyat holati */
+  .custom-option.selected {
+    background-color: #e8f0fe;
+    color: #2563eb;
+    font-weight: 600;
+  }
+  
+  
+  /* ==========================================
+     TUGMALAR VA QO'LLAB QUVVATLASH STILLARI
+     ========================================== */
+  
+  .settings-action-buttons {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    margin-top: 28px;
+  }
+  
+  .settings-submit-btn {
+    width: 100%;
+    height: 50px;
+    background-color: #2563eb;
+    color: #ffffff;
+    border: none;
+    border-radius: 12px;
+    font-size: 15px;
+    font-weight: 600;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    transition: background-color 0.2s;
+  }
+  
+  .settings-submit-btn:hover {
+    background-color: #1d4ed8;
+  }
+  
+  .settings-submit-btn:disabled {
+    background-color: #93c5fd;
+    cursor: not-allowed;
+  }
+  
+  .settings-exit-btn {
+    width: 100%;
+    height: 50px;
+    background: none;
+    border: 1px solid #e2e8f0;
+    color: #ef4444;
+    border-radius: 12px;
+    font-size: 15px;
+    font-weight: 600;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    transition: all 0.2s ease;
+  }
+  
+  .settings-exit-btn:hover {
+    background-color: #fef2f2;
+    border-color: #fca5a5;
+  }
+  
+  /* 3. MIJOZLARNI QO'LLAB-QUVVATLASH BLOKI */
+  .settings-support-container-card {
+    background-color: #ffffff;
+    border-radius: 16px;
+    padding: 20px;
+    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.04);
+    border: 1px solid #e2e8f0;
+    box-sizing: border-box;
+  }
+  
+  .settings-support-heading {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    margin-bottom: 20px;
+    padding-bottom: 12px;
+    border-bottom: 1px solid #f1f5f9;
+  }
+  
+  .support-blue-icon {
+    color: #2563eb;
+  }
+  
+  .settings-support-heading h4 {
+    margin: 0;
+    font-size: 15px;
+    color: #0f172a;
+    font-weight: 700;
+  }
+  
+  .settings-support-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 14px;
+    gap: 10px;
+  }
+  
+  .support-service-label {
+    font-size: 13px;
+    color: #64748b;
+  }
+  
+  .support-phone-anchor {
+    font-size: 16px;
+    font-weight: 700;
+    color: #2563eb;
+    text-decoration: none;
+    transition: color 0.2s ease;
+  }
+  
+  .support-phone-anchor:hover {
+    color: #1d4ed8;
+    text-decoration: underline;
+  }
+  
+  .settings-support-telegram-box {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 16px;
+    padding-top: 14px;
+    border-top: 1px dashed #cbd5e1;
+    gap: 10px;
+  }
+  
+  .support-telegram-anchor {
+    font-size: 15px;
+    font-weight: 600;
+    color: #2563eb;
+    text-decoration: underline;
+    transition: opacity 0.2s;
+  }
+  
+  .support-telegram-anchor:hover {
+    opacity: 0.8;
+  }
+  
+  /* ==========================================
+     4. RESPONSIVE (MOBIL QURILMALAR UCHUN)
+     ========================================== */
+  @media (max-width: 480px) {
+    .settings-tab-wrapper {
+      padding: 10px;
+    }
+  
+    .settings-main-card,
+    .settings-support-container-card {
+      padding: 16px;
+    }
+  
+    .settings-support-row,
+    .settings-support-telegram-box {
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      gap: 4px;
+    }
+  
+    .support-phone-anchor {
+      font-size: 15px;
+    }
+  }

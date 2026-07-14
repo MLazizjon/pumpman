@@ -1,0 +1,204 @@
+/* ==========================================================================
+   🎁 ADMIN PANEL: MAGAZIN BO'LIMI USLUBLARI (LIGHT MODE VERSION)
+   ========================================================================== */
+
+   .magazin-admin {
+    padding: 24px !important;
+    background-color: #f8fafc; /* Eng och ko'kish-kulrang fon */
+    min-height: 100vh;
+    font-family: 'Inter', sans-serif;
+  }
+  
+  .magazin-admin h2 {
+    font-size: 24px;
+    color: #0f172a; /* To'q kulrang/matn rang */
+    font-weight: 700;
+    margin-bottom: 20px;
+  }
+  
+  .magazin-admin h3 {
+    font-size: 18px;
+    color: #1e293b;
+    margin-top: 30px;
+    margin-bottom: 15px;
+    font-weight: 600;
+  }
+  
+  /* ➕ SOVG'A QO'SHISH FORMASI */
+  .add-prize-form {
+    background: #ffffff; /* Butunlay oq */
+    border-radius: 12px;
+    padding: 20px;
+    box-shadow: 0 4px 6px -1px rgba(148, 163, 184, 0.08); /* Yumshoq och soya */
+    border: 1px solid #e2e8f0;
+    display: flex;
+    gap: 12px !important;
+    margin: 20px 0 !important;
+  }
+  
+  .add-prize-form input {
+    flex: 1;
+    padding: 10px 14px;
+    border: 1px solid #cbd5e1;
+    border-radius: 8px;
+    font-size: 14px;
+    color: #334155;
+    outline: none;
+    transition: all 0.2s ease;
+    background-color: #ffffff;
+  }
+  
+  .add-prize-form input:focus {
+    border-color: #3b82f6; /* Och ko'k rang */
+    box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.15);
+  }
+  
+  .add-prize-form button {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background-color: #3b82f6; /* Yorqin och ko'k */
+    color: #ffffff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 8px;
+    font-weight: 500;
+    font-size: 14px;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+  }
+  
+  .add-prize-form button:hover {
+    background-color: #2563eb;
+  }
+  
+  .add-prize-form button:disabled {
+    background-color: #94a3b8;
+    cursor: not-allowed;
+  }
+  
+  /* 📦 DO'KONDAGI MAXSULOTLAR VA SO'ROVLAR JADVALI */
+  .orders-table {
+    width: 100% !important;
+    border-collapse: collapse !important;
+    margin-top: 15px !important;
+    background: #ffffff;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 4px 6px -1px rgba(148, 163, 184, 0.08);
+    border: 1px solid #e2e8f0;
+  }
+  
+  /* Qora fon o'rniga chiroyli och kulrang fon qo'yildi */
+  .orders-table th {
+    background-color: #f8fafc !important; 
+    color: #475569 !important; /* To'qroq kulrang matn */
+    padding: 14px 16px;
+    font-weight: 600;
+    font-size: 14px;
+    text-align: left;
+    border-bottom: 2px solid #e2e8f0 !important;
+  }
+  
+  .orders-table td {
+    padding: 14px 16px;
+    color: #334155;
+    border-bottom: 1px solid #f1f5f9 !important;
+    font-size: 14px;
+    vertical-align: middle;
+  }
+  
+  .orders-table tr:last-child td {
+    border-bottom: none !important;
+  }
+  
+  .orders-table tr:hover td {
+    background-color: #f1f5f9; /* Qator ustiga kelganda yorqinroq bo'ladi */
+  }
+  
+  /* ⚙️ AMAL TUGMALARI (TASDIQLASH VA RAD ETISH) */
+  .orders-table td button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 34px;
+    height: 34px;
+    border: none !important;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    font-size: 14px;
+    background: none;
+  }
+  
+  /* Tasdiqlash (Check) tugmasi */
+  .orders-table td button:first-child {
+    background-color: #f0fdf4;
+    color: #16a34a !important;
+  }
+  
+  .orders-table td button:first-child:hover {
+    background-color: #16a34a;
+    color: #ffffff !important;
+  }
+  
+  /* Rad etish (Times) tugmasi */
+  .orders-table td button:last-child {
+    background-color: #fef2f2;
+    color: #dc2626 !important;
+  }
+  
+  .orders-table td button:last-child:hover {
+    background-color: #dc2626;
+    color: #ffffff !important;
+  }
+  
+  /* Status matnlari uchun qo'shimcha ranglar */
+  .status-text.approved {
+    color: #16a34a;
+    font-weight: 600;
+  }
+  .status-text.pending {
+    color: #d97706;
+    font-weight: 600;
+  }
+  .status-text.rejected {
+    color: #dc2626;
+    font-weight: 600;
+  }
+  
+  /* ==========================================================================
+     📱 RESPONSIVE (MOBIL QURILMALAR UCHUN)
+     ========================================================================== */
+  
+  @media (max-width: 768px) {
+    .magazin-admin {
+      padding: 16px !important;
+    }
+  
+    .add-prize-form {
+      flex-direction: column;
+      gap: 10px !important;
+      padding: 14px;
+    }
+  
+    .add-prize-form input,
+    .add-prize-form button {
+      width: 100%;
+    }
+  
+    .orders-table {
+      display: block;
+      width: 100%;
+      overflow-x: auto;
+      -webkit-overflow-scrolling: touch;
+    }
+  
+    .orders-table thead, 
+    .orders-table tbody, 
+    .orders-table tr {
+      min-width: 650px;
+      display: table;
+      width: 100%;
+    }
+  }

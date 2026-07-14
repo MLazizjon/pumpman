@@ -1,0 +1,396 @@
+/* ==========================================================================
+   🌞 FOYDALANUVCHI MAGAZIN USLUBI (LIGHT MODE VERSION)
+   ========================================================================== */
+
+   .user-magazin-container {
+    padding: 24px;
+    background-color: #f8fafc; /* Eng och kulrang/ko'kish fon */
+    min-height: 100vh;
+    font-family: 'Inter', sans-serif;
+    width: 100%;
+    box-sizing: border-box;
+    overflow-y: visible; /* Kontent pastga bemalol cho'zilishi uchun */
+    padding-bottom: 60px; /* Kompyuterda ham pastdan zaxira joy qolishi uchun */
+  }
+  
+  /* 🔝 HEADER BALANS KARTASI (OCH RANGDA) */
+  .magazin-header-card {
+    background: #ffffff; /* Butunlay oq fon */
+    color: #0f172a; /* To'q matn */
+    border-radius: 16px;
+    padding: 28px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+    box-shadow: 0 4px 20px -2px rgba(148, 163, 184, 0.12); /* Yumshoq och soya */
+    border: 1px solid #e2e8f0;
+    margin-bottom: 32px;
+  }
+  
+  .header-info h2 {
+    /* Ekran kattaligiga qarab silliq o'zgaruvchan fluid shrift */
+    font-size: clamp(20px, 4.5vw, 26px);
+    font-weight: 700;
+    color: #0f172a;
+    margin-bottom: 6px;
+  }
+  
+  .header-info p {
+    color: #64748b; /* Kulrang matn */
+    font-size: clamp(12px, 3vw, 14px);
+  }
+  
+  .user-balance-badge {
+    background: #f1f5f9; /* Och kulrang kontent foni */
+    border: 1px solid #e2e8f0;
+    padding: 14px 24px;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    flex-shrink: 0;
+  }
+  
+  .coin-icon {
+    font-size: clamp(26px, 5vw, 32px);
+    color: #d97706; /* To'qroq oltin rang */
+  }
+  
+  .balance-text {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .balance-text span {
+    font-size: 11px;
+    color: #64748b;
+  }
+  
+  .balance-text strong {
+    font-size: clamp(16px, 4vw, 20px);
+    font-weight: 700;
+    color: #0f172a;
+  }
+  
+  /* 🏷️ SECTION TITLE */
+  .section-title {
+    font-size: clamp(15px, 4vw, 18px);
+    color: #0f172a;
+    font-weight: 600;
+    margin-bottom: 16px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  
+  /* 🛍️ SOVG'ALAR GRIDI VA KARTALARI */
+  .prizes-grid {
+    display: grid;
+    /* Kichik telefonlarda ham 2 ta ustun chiqishi uchun minmax qiymati 140px ga tushirildi */
+    grid-template-columns: repeat(auto-fill, minmax(145px, 1fr));
+    gap: 20px;
+    margin-bottom: 40px;
+  }
+  
+  .prize-card {
+    background: #ffffff;
+    border-radius: 14px;
+    padding: 0px 0px 16px 0px; /* Ichki padding o'zgartirildi: rasm chekkalari kartaga taqalishi uchun */
+    border: 1px solid #e2e8f0;
+    box-shadow: 0 2px 8px rgba(148, 163, 184, 0.08);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    position: relative;
+    box-sizing: border-box;
+    overflow: hidden; /* Rasmlar burchagi yumaloq bo'lishi uchun */
+  }
+  
+  .prize-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 10px 20px -5px rgba(148, 163, 184, 0.2);
+  }
+  
+  /* 📸 TENG TO'RTBURCHAK (KVADRAT) RASM KONTEYNERI */
+  .prize-image-container {
+    width: 100%;
+    aspect-ratio: 1 / 1; /* Mukammal 1:1 kvadrat shakl */
+    overflow: hidden;
+    background-color: #f8fafc;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-bottom: 1px solid #e2e8f0;
+    margin-bottom: 14px;
+  }
+  
+  /* Kvadrat rasm stili */
+  .prize-img-square {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Rasmni cho'zmasdan, chiroyli to'ldiradi */
+    object-position: center;
+  }
+  
+  /* Rasm bo'lmaganda chiqadigan blok */
+  .prize-no-img {
+    font-size: clamp(32px, 8vw, 42px);
+    color: #94a3b8;
+    background-color: #eff6ff;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  /* Balli yetmaganda kartani biroz xiralashtirish */
+  .prize-card.locked {
+    background-color: #f8fafc;
+    border-color: #e2e8f0;
+  }
+  .prize-card.locked .prize-no-img {
+    background-color: #f1f5f9;
+    color: #cbd5e1;
+  }
+  
+  .prize-details {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 0 14px; /* Detallar yonidan masofa */
+    box-sizing: border-box;
+  }
+  
+  .prize-details h4 {
+    font-size: clamp(14px, 3.8vw, 16px);
+    color: #0f172a;
+    font-weight: 600;
+    margin-bottom: 8px;
+    line-height: 1.3;
+  }
+  
+  .prize-price-tag {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    background-color: #fef3c7; /* Yumshoq sariq fon */
+    color: #b45309;
+    font-weight: 600;
+    font-size: clamp(12px, 3.5vw, 14px);
+    padding: 4px 10px;
+    border-radius: 20px;
+    margin-bottom: 14px;
+  }
+  
+  /* SOTIB OLISH TUGMALARI */
+  .buy-btn {
+    width: 100%;
+    padding: 10px 6px;
+    border: none;
+    border-radius: 8px;
+    font-weight: 500;
+    font-size: clamp(12px, 3.5vw, 14px);
+    cursor: pointer;
+    transition: all 0.2s ease;
+  }
+  
+  .buy-btn.active {
+    background-color: #3b82f6; /* Yorqin och ko'k */
+    color: #ffffff;
+  }
+  
+  .buy-btn.active:hover {
+    background-color: #2563eb;
+  }
+  
+  .buy-btn.disabled {
+    background-color: #f1f5f9;
+    color: #94a3b8;
+    cursor: not-allowed;
+  }
+  
+  /* 📜 BUYURTMALAR TARIXI JADVALI */
+  .orders-history-card {
+    background: #ffffff;
+    border-radius: 14px;
+    padding: 20px;
+    border: 1px solid #e2e8f0;
+    box-shadow: 0 2px 8px rgba(148, 163, 184, 0.08);
+  }
+  
+  .user-orders-table-wrapper {
+    width: 100%;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+  
+  .user-orders-table {
+    width: 100%;
+    border-collapse: collapse;
+    text-align: left;
+    font-size: 14px;
+  }
+  
+  .user-orders-table th {
+    background-color: #f8fafc;
+    color: #64748b;
+    padding: 12px 16px;
+    font-weight: 500;
+    border-bottom: 1px solid #e2e8f0;
+    white-space: nowrap;
+  }
+  
+  .user-orders-table td {
+    padding: 14px 16px;
+    color: #334155;
+    border-bottom: 1px solid #f1f5f9;
+  }
+  
+  .table-price {
+    color: #b45309;
+    font-weight: 600;
+  }
+  
+  /* 🏷️ STATUS BADGE'LARI (OCH RANG TIZIMI) */
+  .user-status-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 6px 12px;
+    border-radius: 20px;
+    font-size: 12px;
+    font-weight: 500;
+    white-space: nowrap;
+  }
+  
+  .user-status-badge.pending {
+    background-color: #fff7ed;
+    color: #c2410c;
+  }
+  
+  .user-status-badge.approved {
+    background-color: #f0fdf4;
+    color: #15803d;
+  }
+  
+  .user-status-badge.rejected {
+    background-color: #fef2f2;
+    color: #b91c1c;
+  }
+  
+  .empty-text {
+    color: #64748b;
+    font-size: 14px;
+    font-style: italic;
+  }
+  
+  /* ==========================================================================
+     📱 RESPONSIVE DIZAYN (MEDIA QUERIES)
+     ========================================================================== */
+  
+  /* 1. Planshetlar va o'rta ekranlar (Max: 900px) */
+  @media (max-width: 900px) {
+    .magazin-header-card {
+      padding: 20px;
+      margin-bottom: 24px;
+    }
+  }
+  
+  /* 2. Katta va o'rta smartfonlar (Max: 768px) */
+  @media (max-width: 768px) {
+    .user-magazin-container {
+      padding: 16px;
+    }
+  
+    .magazin-header-card {
+      flex-direction: column;
+      align-items: flex-start;
+      padding: 20px;
+      gap: 16px;
+    }
+  
+    .user-balance-badge {
+      width: 100%;
+      justify-content: center;
+      box-sizing: border-box;
+    }
+  
+    .prizes-grid {
+      gap: 12px;
+      margin-bottom: 32px;
+    }
+  
+    .prize-card {
+      padding: 0px 0px 12px 0px;
+      border-radius: 12px;
+    }
+  
+    .orders-history-card {
+      padding: 12px;
+      border-radius: 12px;
+    }
+  
+    .user-orders-table th, .user-orders-table td {
+      padding: 10px 8px;
+      font-size: 12px; /* Jadval shrifti kichrayadi */
+    }
+  }
+  
+  /* 3. Kichik smartfonlar (Max: 480px) */
+  @media (max-width: 480px) {
+    .user-magazin-container {
+      padding: 10px;
+      /* 🚨 FIX: Pastdagi navigatsiya menyusi jadval oxirini to'sib qo'ymasligi uchun zaxira joy */
+      padding-bottom: 120px !important; 
+    }
+  
+    .magazin-header-card {
+      padding: 16px;
+      border-radius: 12px;
+    }
+  
+    .user-balance-badge {
+      padding: 10px 16px;
+    }
+  
+    /* Kichik ekranda jadval sig'masa, UI buzilmasdan scroll bo'lishi uchun */
+    .user-orders-table-wrapper {
+      margin: 0 -4px;
+      padding: 0 4px;
+      width: calc(100% + 8px);
+    }
+  
+    .user-orders-table th, .user-orders-table td {
+      padding: 10px 6px;
+      font-size: 11px;
+    }
+  
+    .user-status-badge {
+      padding: 4px 8px;
+      font-size: 10px;
+      gap: 4px;
+    }
+  }
+  
+  /* 4. Eng o'ta kichik mobil ekranlar (300px gacha) */
+  @media (max-width: 350px) {
+    .prizes-grid {
+      /* 300px ekranda 2 tadan qiynalib qolmasligi uchun bitta ustunga o'tkazamiz */
+      grid-template-columns: 1fr; 
+      gap: 10px;
+    }
+  
+    .prize-card {
+      padding: 0px 0px 14px 0px;
+    }
+  
+    .user-orders-table th, .user-orders-table td {
+      padding: 8px 4px;
+      font-size: 10px;
+    }
+  }

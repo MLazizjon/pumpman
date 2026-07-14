@@ -1,0 +1,444 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
+
+.generator-wrapper {
+  font-family: 'Inter', sans-serif;
+  padding: 24px;
+  background-color: #f8fafc;
+  min-height: 100vh;
+}
+
+/* Control Panel */
+.generator-header-card {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 20px;
+  background: #ffffff;
+  padding: 24px;
+  border-radius: 16px;
+  border: 1px solid #e2e8f0;
+  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.05);
+  margin-bottom: 30px;
+}
+
+.header-info {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.header-icon-container {
+  background-color: #eff6ff;
+  border-radius: 12px;
+  display: flex;
+  padding: 14px;
+  color: #2563eb;
+}
+
+.header-info h3 {
+  margin: 0;
+  font-size: 18px;
+  font-weight: 700;
+  color: #0f172a;
+}
+
+.header-info p {
+  margin: 4px 0 0 0;
+  font-size: 13px;
+  color: #64748b;
+  font-weight: 500;
+}
+
+/* Input va Tugma Simmetriyasi */
+.generator-controls {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.custom-input-group {
+  display: flex;
+  align-items: center;
+  background-color: #ffffff;
+  border: 2px solid #cbd5e1;
+  border-radius: 12px;
+  padding: 0 6px 0 14px;
+  height: 46px;
+  box-sizing: border-box;
+  transition: border-color 0.2s ease;
+}
+
+.custom-input-group:focus-within {
+  border-color: #2563eb;
+}
+
+.custom-input-group label {
+  font-size: 13px;
+  font-weight: 700;
+  color: #475569;
+  margin-right: 10px;
+  white-space: nowrap;
+}
+
+.custom-input-group input {
+  border: none;
+  font-size: 16px;
+  font-weight: 700;
+  color: #0f172a;
+  width: 65px;
+  outline: none;
+  padding: 0;
+  background: transparent;
+}
+
+.main-generate-btn {
+  height: 46px;
+  padding: 0 24px;
+  background-color: #2563eb;
+  color: #ffffff;
+  border: none;
+  border-radius: 12px;
+  font-weight: 600;
+  font-size: 14px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  box-shadow: 0 4px 12px rgba(37, 99, 235, 0.2);
+  transition: all 0.2s ease;
+}
+
+.main-generate-btn:hover {
+  background-color: #1d4ed8;
+  transform: translateY(-1px);
+}
+
+.generated-title-bar h4 {
+  font-size: 16px;
+  font-weight: 700;
+  color: #1e293b;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 18px;
+}
+
+/* Grids Layout */
+.groups-grid-layout {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(310px, 1fr));
+  gap: 20px;
+}
+
+/* Guruh Kartalari */
+.group-batch-card {
+  background-color: #ffffff;
+  border-radius: 16px;
+  border: 1px solid #e2e8f0;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  box-shadow: 0 4px 6px -1px rgba(0,0,0,0.02);
+  transition: transform 0.2s ease;
+}
+
+.batch-card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 14px;
+}
+
+.batch-badge {
+  font-size: 11px;
+  font-weight: 700;
+  background-color: #f1f5f9;
+  color: #64748b;
+  padding: 3px 8px;
+  border-radius: 6px;
+}
+
+.batch-card-header h5 {
+  margin: 6px 0 2px 0;
+  font-size: 14px;
+  font-weight: 700;
+  color: #0f172a;
+}
+
+.batch-card-header p {
+  margin: 0;
+  font-size: 12px;
+  color: #64748b;
+  font-weight: 500;
+}
+
+.batch-action-buttons {
+  display: flex;
+  gap: 6px;
+}
+
+.batch-action-buttons button, .btn-action-delete {
+  padding: 8px;
+  border-radius: 8px;
+  cursor: pointer;
+  display: flex;
+  transition: all 0.2s ease;
+}
+
+.btn-action-delete {
+  background-color: #fff1f2;
+  color: #e11d48;
+  border: 1px solid #ffe4e6;
+}
+
+.btn-action-delete:hover {
+  background-color: #ffe4e6;
+}
+
+.btn-action-copy {
+  background-color: #f8fafc;
+  color: #475569;
+  border: 1px solid #e2e8f0;
+}
+
+.btn-action-copy:hover {
+  background-color: #f1f5f9;
+}
+
+/* Scroll va Ro'yxat */
+.batch-codes-scroll {
+  max-height: 160px;
+  overflow-y: auto;
+  margin-bottom: 14px;
+  padding-right: 4px;
+}
+
+.batch-codes-scroll::-webkit-scrollbar {
+  width: 4px;
+}
+
+.batch-codes-scroll::-webkit-scrollbar-thumb {
+  background: #cbd5e1;
+  border-radius: 4px;
+}
+
+.batch-codes-scroll ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.batch-codes-scroll li {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 8px 12px;
+  background-color: #f8fafc;
+  border-radius: 8px;
+  border: 1px solid #f1f5f9;
+}
+
+.code-item-left {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.barcode-icon {
+  color: #2563eb;
+}
+
+.code-item-left span {
+  font-family: monospace;
+  font-weight: 700;
+  color: #0f172a;
+  font-size: 14px;
+}
+
+.status-pill {
+  font-size: 11px;
+  font-weight: 700;
+  padding: 2px 8px;
+  border-radius: 6px;
+}
+
+.active-pill {
+  background-color: #dcfce7;
+  color: #15803d;
+}
+
+.batch-card-footer {
+  display: flex;
+  justify-content: space-between;
+  font-size: 12px;
+  color: #64748b;
+  border-top: 1px solid #f1f5f9;
+  padding-top: 12px;
+  font-weight: 500;
+}
+
+/* 🌟 YANGI LIGHT MODE: Ishlatilgan kodlar maxsus kartasi */
+.used-codes-special-card {
+  background-color: #f1f5f9 !important;
+  border: 1px solid #e2e8f0 !important;
+}
+
+.used-badge {
+  background-color: #fee2e2 !important;
+  color: #b91c1c !important;
+}
+
+.used-title-heading {
+  color: #991b1b !important;
+  font-size: 14px;
+  font-weight: 700;
+  margin: 6px 0 2px 0;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.used-code-li {
+  background-color: #ffffff !important;
+  border: 1px solid #e2e8f0 !important;
+}
+
+.disabled-icon {
+  color: #94a3b8 !important;
+}
+
+.strikethrough-text {
+  color: #64748b !important;
+  text-decoration: line-through;
+}
+
+.used-pill {
+  background-color: #fee2e2;
+  color: #b91c1c;
+}
+
+.empty-used-text {
+  text-align: center;
+  padding: 35px 0;
+  color: #94a3b8;
+  font-size: 13px;
+  font-weight: 500;
+}
+
+.used-footer-top {
+  border-top: 1px solid #e2e8f0 !important;
+  color: #475569 !important;
+  font-weight: 600 !important;
+}
+
+.used-count-text {
+  color: #b91c1c;
+  font-weight: 800;
+  font-size: 15px;
+}
+
+/* Modallar */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(15, 23, 42, 0.3);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+  backdrop-filter: blur(4px);
+}
+
+.modal-container {
+  background-color: #ffffff;
+  padding: 30px;
+  border-radius: 24px;
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.08);
+  width: 90%;
+  max-width: 380px;
+  text-align: center;
+}
+
+.modal-icon-wrapper {
+  width: 55px;
+  height: 55px;
+  background-color: #fef2f2;
+  color: #ef4444;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 16px auto;
+}
+
+.modal-container h3 {
+  margin: 0 0 8px 0;
+  color: #0f172a;
+  font-size: 18px;
+  font-weight: 800;
+}
+
+.modal-container p {
+  margin: 0 0 24px 0;
+  color: #64748b;
+  font-size: 14px;
+  line-height: 1.5;
+  font-weight: 500;
+}
+
+.modal-buttons-group {
+  display: flex;
+  gap: 12px;
+}
+
+.modal-confirm-btn {
+  padding: 10px 18px;
+  background-color: #ef4444;
+  color: #ffffff;
+  border: none;
+  border-radius: 10px;
+  font-weight: 600;
+  font-size: 14px;
+  cursor: pointer;
+  flex: 1;
+  transition: background 0.2s;
+}
+
+.modal-confirm-btn:hover {
+  background-color: #dc2626;
+}
+
+.modal-cancel-btn {
+  padding: 10px 18px;
+  background-color: #f1f5f9;
+  color: #334155;
+  border: none;
+  border-radius: 10px;
+  font-weight: 600;
+  font-size: 14px;
+  cursor: pointer;
+  flex: 1;
+  transition: background 0.2s;
+}
+
+.modal-cancel-btn:hover {
+  background-color: #e2e8f0;
+}
+
+/* Animatsiya */
+.fade-in {
+  animation: fadeIn 0.3s ease-in-out;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(8px); }
+  to { opacity: 1; transform: translateY(0); }
+}

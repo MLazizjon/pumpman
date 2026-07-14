@@ -1,0 +1,578 @@
+/* ==========================================================================
+   🏠 HOME TAB ASOSIY STRUKTURASI (MOBIL MENYU FIX)
+   ========================================================================== */
+   .tab-section {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    box-sizing: border-box;
+    padding: 16px;
+    
+    /* 🚨 BALANDLIK VA SKROL SOZLAMALARI */
+    height: auto !important;
+    min-height: calc(100dvh - 60px) !important;
+    
+    /* 🚨 ENG ASOSIY TUZATISH (BOTTOM NAV OSTIDA QOLMASLIGI UCHUN):
+       Pastki navigatsiya menyusi kontentni to'sib qo'ymasligi uchun pastdan 
+       katta xavfsiz masofa (padding) qoldiramiz. Bu kontentni menyudan tepaga ko'taradi. */
+    padding-bottom: 160px !important; 
+    
+    overflow: visible !important;
+    -webkit-overflow-scrolling: touch;
+  }
+  
+  /* ✨ Sahifa silliq kirib kelishi uchun animatsiya */
+  .fade-in {
+    animation: tabFadeIn 0.35s ease-out forwards;
+  }
+  
+  @keyframes tabFadeIn {
+    from {
+      opacity: 0;
+      transform: translateY(8px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  /* ==========================================================================
+     📊 4 TA STATISTIKA KARTASI (Yuqoridagi to'q ko'k blok)
+     ========================================================================== */
+  .stats-card-container {
+    background: linear-gradient(135deg, #1e3a8a 0%, #172554 100%) !important;
+    border-radius: clamp(16px, 4vw, 24px);
+    padding: clamp(12px, 3.5vw, 20px);
+    margin-bottom: clamp(16px, 4vw, 24px);
+    box-shadow: 0 10px 25px rgba(30, 58, 138, 0.15);
+    width: 100% !important;
+    box-sizing: border-box;
+  }
+  
+  .stats-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+  }
+  
+  .inner-stat-box {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    gap: clamp(6px, 2vw, 12px);
+    color: white;
+    min-width: 0;
+  }
+  
+  .stat-icon-wrapper {
+    width: clamp(32px, 8vw, 40px);
+    height: clamp(32px, 8vw, 40px);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: clamp(13px, 3.5vw, 16px);
+    background: rgba(255, 255, 255, 0.15);
+    flex-shrink: 0;
+  }
+  
+  .trophy-bg { color: #f59e0b; }
+  .check-bg { color: #60a5fa; }
+  .times-bg { color: #93c5fd; }
+  .frown-bg { color: #cbd5e1; }
+  
+  .stat-text-wrapper {
+    display: flex;
+    flex-direction: column;
+    min-width: 0;
+  }
+  
+  .stat-val-text {
+    font-weight: 700;
+    font-size: clamp(12px, 3.8vw, 15px);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+  
+  .stat-lbl-text {
+    font-size: clamp(10px, 3vw, 12px);
+    opacity: 0.75;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+  
+  .vertical-divider {
+    width: 1px;
+    background: rgba(255, 255, 255, 0.12);
+    margin: 0 clamp(6px, 2vw, 15px);
+    align-self: stretch;
+  }
+  
+  .horizontal-divider {
+    height: 1px;
+    background: rgba(255, 255, 255, 0.12);
+    margin: clamp(10px, 3vw, 15px) 0;
+    width: 100%;
+  }
+  
+  /* ==========================================================================
+     ⚪ INFRASTRUKTURA BLOKLARI KONTENTI
+     ========================================================================== */
+  .white-content-body {
+    width: 100% !important;
+    display: flex;
+    flex-direction: column;
+    gap: clamp(14px, 4vw, 20px);
+    box-sizing: border-box;
+  }
+  
+  /* Reklama Karusel Bannerlari */
+  .promo-banners-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: clamp(10px, 3vw, 14px);
+    width: 100%;
+  }
+  
+  .promo-banner-card {
+    position: relative;
+    height: clamp(90px, 16vw, 140px);
+    border-radius: clamp(14px, 3.5vw, 20px);
+    overflow: hidden;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+  }
+  
+  .promo-banner-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 14px rgba(0, 0, 0, 0.1);
+  }
+  
+  .promo-banner-card img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  
+  .banner-badge {
+    position: absolute;
+    bottom: clamp(8px, 2vw, 12px);
+    left: clamp(8px, 2vw, 12px);
+    color: white;
+    padding: 4px clamp(8px, 2vw, 12px);
+    border-radius: 20px;
+    font-size: clamp(9px, 2.5vw, 11px);
+    font-weight: bold;
+    letter-spacing: 0.5px;
+    background: rgba(15, 23, 42, 0.55);
+    -webkit-backdrop-filter: blur(2px);
+    backdrop-filter: blur(2px);
+  }
+  
+  /* 📅 Filter Selects (Yil / Oy) */
+  .filter-section {
+    display: flex;
+    gap: clamp(10px, 3vw, 16px);
+    width: 100%;
+    box-sizing: border-box;
+  }
+  
+  .filter-group {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+  }
+  
+  .filter-label {
+    font-size: clamp(12px, 3.5vw, 14px);
+    font-weight: 600;
+    color: #475569;
+    padding-left: 4px;
+  }
+  
+  .filter-select {
+    width: 100%;
+    padding: clamp(10px, 3vw, 14px);
+    border-radius: clamp(10px, 3vw, 16px);
+    border: 1px solid #e2e8f0;
+    background-color: #f1f5f9;
+    font-size: clamp(12px, 3.8vw, 15px);
+    font-weight: 600;
+    color: #1e293b;
+    outline: none;
+    cursor: pointer;
+  }
+  
+  /* 📊 Umumiy ball korpusi */
+  .total-score-box {
+    display: flex;
+    align-items: center;
+    background-color: #f8fafc;
+    border: 1px solid #e2e8f0;
+    padding: clamp(12px, 3.5vw, 18px) clamp(14px, 4vw, 20px);
+    border-radius: clamp(14px, 3.5vw, 20px);
+    width: 100%;
+    box-sizing: border-box;
+  }
+  
+  .score-title {
+    font-size: clamp(12px, 3.5vw, 16px);
+    font-weight: 600;
+    color: #334155;
+    white-space: nowrap;
+  }
+  
+  .score-divider {
+    flex: 1;
+    border-bottom: 2px dashed #cbd5e1;
+    margin: 0 clamp(8px, 2.5vw, 16px);
+  }
+  
+  .score-number {
+    font-size: clamp(14px, 4vw, 18px);
+    font-weight: 800;
+    color: #2563eb;
+    white-space: nowrap;
+  }
+  
+  /* ==========================================================================
+     📊 ENG PASTDAGI DIAGRAMMA STATISTIKA BLOKI
+     ========================================================================== */
+  .home-bottom-statistics {
+    background: #ffffff;
+    border: 1px solid #e2e8f0;
+    border-radius: clamp(16px, 4vw, 24px);
+    padding: clamp(14px, 4vw, 20px);
+    margin-top: 10px;
+    width: 100%;
+    box-sizing: border-box;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.02);
+  }
+  
+  .stats-header-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: clamp(16px, 4vw, 24px);
+    width: 100%;
+  }
+  
+  .stats-header-title {
+    display: flex;
+    align-items: center;
+    gap: clamp(8px, 2.5vw, 12px);
+  }
+  
+  .chart-icon-lead {
+    font-size: clamp(18px, 5vw, 22px);
+    color: #2563eb;
+    flex-shrink: 0;
+  }
+  
+  .stats-header-title h3 {
+    margin: 0;
+    font-size: clamp(13px, 4vw, 16px);
+    font-weight: 700;
+    color: #0f172a;
+  }
+  
+  .stats-header-title p {
+    margin: 2px 0 0 0;
+    font-size: clamp(10px, 3vw, 12px);
+    color: #64748b;
+  }
+  
+  .stats-header-badge {
+    background: #f1f5f9;
+    padding: 4px 8px;
+    border-radius: 10px;
+  }
+  
+  .stats-header-badge select {
+    border: none;
+    background: none;
+    font-size: clamp(11px, 3vw, 12px);
+    font-weight: 600;
+    color: #475569;
+    outline: none;
+    cursor: pointer;
+  }
+  
+  /* Diagramma ustunlari (Bars) konteyneri */
+  .visual-chart-bars {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    height: clamp(120px, 20vw, 160px);
+    padding: 10px 4px 20px 4px;
+    border-bottom: 1px solid #f1f5f9;
+    margin-bottom: 16px;
+    width: 100%;
+    box-sizing: border-box;
+  }
+  
+  .chart-bar-column {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    flex: 1;
+    height: 100%;
+    justify-content: flex-end;
+  }
+  
+  .bar-track {
+    width: clamp(7px, 2.5vw, 14px);
+    height: 100%;
+    background: #f1f5f9;
+    border-radius: 10px;
+    position: relative;
+    display: flex;
+    align-items: flex-end;
+  }
+  
+  .bar-fill {
+    width: 100%;
+    background: #93c5fd;
+    border-radius: 10px;
+    position: relative;
+    transition: height 0.4s ease;
+    cursor: pointer;
+  }
+  
+  .bar-active {
+    background: #2563eb !important;
+  }
+  
+  .bar-tooltip-val {
+    position: absolute;
+    top: -26px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: #0f172a;
+    color: white;
+    font-size: 9px;
+    padding: 2px 6px;
+    border-radius: 6px;
+    opacity: 0;
+    transition: opacity 0.2s ease;
+    white-space: nowrap;
+    pointer-events: none;
+    z-index: 5;
+  }
+  
+  .bar-fill:hover .bar-tooltip-val {
+    opacity: 1;
+  }
+  
+  .bar-label-day {
+    font-size: clamp(9px, 2.8vw, 12px);
+    font-weight: 600;
+    color: #64748b;
+    margin-top: 8px;
+    text-align: center;
+    white-space: nowrap;
+  }
+  
+  /* Statistika summary qismi */
+  .stats-summary-footer {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    padding-top: 4px;
+    width: 100%;
+  }
+  
+  .summary-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2px;
+  }
+  
+  .sum-lbl {
+    font-size: clamp(10px, 3vw, 12px);
+    color: #64748b;
+    text-align: center;
+  }
+  
+  .summary-item .sum-val {
+    font-size: clamp(11px, 3.5vw, 15px);
+    font-weight: 700;
+    color: #0f172a;
+  }
+  
+  .summary-divider {
+    width: 1px;
+    height: 24px;
+    background: #e2e8f0;
+  }
+  
+  /* ==========================================================================
+     📱 MOBIL MEDIA SO'ROVLAR (EKRAN 400PX VA UNDAN PASTDA MAXIMUM FIX)
+     ========================================================================== */
+  
+  /* 800px dan past bo'lgan planshet va ekranlar */
+  @media (max-width: 800px) {
+    .promo-banners-container {
+      grid-template-columns: 1fr;
+    }
+  }
+  
+  /* 🚨 480px dan past bo'lgan smartfonlar (400px va 360px ekranlarni to'liq qutqaradi) */
+  @media (max-width: 480px) {
+    .tab-section {
+      padding: px 8px !important;
+      
+      /* 🚀 MUHIM FIX: Ekran juda torayganda, pastki menyu (Bottom Sidebar) 
+         kontentni mutlaqo to'sib qo'ymasligi uchun paddingni yanada ko'paytiramiz */
+      padding-bottom: 170px !important; 
+      
+      height: auto !important;
+      min-height: calc(100dvh - 60px) !important;
+    }
+  
+    .stats-card-container {
+      padding: 12px !important;
+    }
+  
+    /* Yil va Oy filterlari tor ekranda siqilmasdan chiroyli turishi uchun ustma-ust qilamiz */
+    .filter-section {
+      flex-direction: column;
+      gap: 8px;
+    }
+  }
+  
+  /* 🚨 350px dan past bo'lgan o'ta kichik mobil qurilmalar uchun */
+  @media (max-width: 350px) {
+    .tab-section {
+      padding: 8px 6px !important;
+      /* Eng kichik ekranda maksimal xavfsiz pastki bo'shliq */
+      padding-bottom: 180px !important; 
+    }
+  
+    .stats-row {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 12px;
+    }
+  
+    .vertical-divider {
+      display: none;
+    }
+  
+    .horizontal-divider {
+      display: block !important;
+      margin: 8px 0;
+      width: 100%;
+    }
+  
+    .inner-stat-box {
+      width: 100%;
+    }
+  
+    .visual-chart-bars {
+      height: 100px !important;
+      padding: 5px 0px 15px 0px;
+    }
+  }
+  
+  /* ==========================================================================
+     🔍 MODAL OYNASI STIllARI
+     ========================================================================== */
+  .home-modal-overlay {
+    position: fixed;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    background: rgba(15, 23, 42, 0.6);
+    -webkit-backdrop-filter: blur(4px);
+    backdrop-filter: blur(4px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 9999;
+    padding: 16px;
+    box-sizing: border-box;
+    animation: modalFadeIn 0.2s ease-out;
+  }
+  
+  .home-modal-content {
+    background: #ffffff;
+    width: 100%;
+    max-width: 500px;
+    max-height: 90vh;
+    overflow-y: auto;
+    border-radius: 24px;
+    position: relative;
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+    animation: modalSlideUp 0.25s ease-out;
+  }
+  
+  .home-modal-close {
+    position: absolute;
+    top: 14px; right: 14px;
+    background: rgba(255, 255, 255, 0.9);
+    border: none;
+    width: 32px; height: 32px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    color: #1e293b;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+    transition: all 0.2s;
+    z-index: 10;
+  }
+  
+  .home-modal-close:hover {
+    color: #ef4444;
+    transform: scale(1.05);
+  }
+  
+  .home-modal-img {
+    width: 100%;
+    max-height: clamp(160px, 30vw, 250px);
+    object-fit: cover;
+  }
+  
+  .home-modal-body {
+    padding: clamp(16px, 5vw, 24px);
+  }
+  
+  .home-modal-body h3 {
+    margin: 0 0 12px 0;
+    font-size: clamp(15px, 4.5vw, 18px);
+    font-weight: 700;
+    color: #0f172a;
+  }
+  
+  .home-modal-text {
+    font-size: clamp(12px, 3.5vw, 14px);
+    color: #475569;
+    line-height: 1.6;
+    white-space: pre-line;
+  }
+  
+  .home-modal-dates {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    font-size: clamp(12px, 3.5vw, 14px);
+    color: #475569;
+    margin-top: 12px;
+  }
+  
+  .home-modal-dates p {
+    margin: 0;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  
+  @keyframes modalFadeIn { from { opacity: 0; } to { opacity: 1; } }
+  @keyframes modalSlideUp { from { transform: translateY(20px); opacity: 0; } to { transform: translateY(0); opacity: 1; } }

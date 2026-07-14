@@ -1,0 +1,222 @@
+/* ==========================================================================
+   📦 GLOBAL RESET
+   ========================================================================== */
+   .custom-sidebar,
+   .custom-sidebar *,
+   .custom-sidebar *::before,
+   .custom-sidebar *::after {
+     box-sizing: border-box !important;
+     margin: 0;
+     padding: 0;
+   }
+   
+   /* ==========================================================================
+      🧱 ASOSIY SIDEBAR KONTEYNERI (Ekranga qulflangan)
+      ========================================================================== */
+   .custom-sidebar {
+     width: 260px;
+     height: 100vh !important;
+     height: 100dvh !important;
+     background-color: #ffffff;
+     border-right: 1px solid #e2e8f0;
+     
+     display: flex !important;
+     flex-direction: column !important;
+     justify-content: flex-start !important;
+     align-items: stretch !important;
+     
+     position: fixed;
+     top: 0;
+     left: 0;
+     z-index: 9999;
+     transition: transform 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+     box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.05);
+     font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+     overflow: hidden !important; 
+   }
+   
+   /* ==========================================================================
+      🔝 LOGOTIP QISMI
+      ========================================================================== */
+   .sidebar-brand {
+     padding: 20px 16px;
+     display: flex;
+     align-items: center;
+     gap: 12px;
+     border-bottom: 1px solid #e2e8f0;
+     flex-shrink: 0 !important;
+     height: 80px !important; 
+   }
+   
+   .brand-icon {
+     background-color: #2563eb !important;
+     color: white !important;
+     padding: 10px !important;
+     border-radius: 10px !important;
+     display: flex !important;
+     align-items: center !important;
+     justify-content: center !important;
+     width: 40px !important;
+     height: 40px !important;
+     flex-shrink: 0 !important;
+   }
+   
+   .brand-text {
+     flex: 1;
+     min-width: 0;
+   }
+   
+   .brand-text h2 {
+     font-size: 14px;
+     font-weight: 700;
+     color: #0f172a;
+     line-height: 1.2;
+   }
+   
+   .brand-text span {
+     font-size: 11px;
+     color: #64748b;
+     font-weight: 500;
+     display: block;
+     margin-top: 2px;
+   }
+   
+   .sidebar-close-inner {
+     background: none;
+     border: none;
+     color: #64748b;
+     cursor: pointer;
+     padding: 6px;
+     border-radius: 6px;
+     display: flex;
+     align-items: center;
+     justify-content: center;
+     transition: all 0.2s ease;
+   }
+   
+   .sidebar-close-inner:hover {
+     background-color: #fee2e2;
+     color: #ef4444;
+   }
+   
+   /* ==========================================================================
+      📜 NAVIGATSIYA MENYULARI (FAQAT SHU QISM SKROLL BO'LADI)
+      ========================================================================== */
+   .sidebar-menu {
+     flex: 1 1 0% !important; 
+     padding: 16px;
+     overflow-y: auto !important; 
+     min-height: 0 !important; 
+   }
+   
+   /* Skrollbar */
+   .sidebar-menu::-webkit-scrollbar {
+     width: 5px;
+   }
+   .sidebar-menu::-webkit-scrollbar-thumb {
+     background-color: #cbd5e1;
+     border-radius: 4px;
+   }
+   
+   .sidebar-menu ul {
+     list-style-type: none !important;
+     display: flex;
+     flex-direction: column;
+     gap: 4px;
+   }
+   
+   .sidebar-menu li {
+     display: flex;
+     align-items: center;
+     padding: 10px 14px;
+     color: #475569;
+     font-size: 13.5px;
+     font-weight: 600;
+     cursor: pointer;
+     border-radius: 8px;
+     position: relative;
+     transition: all 0.2s ease;
+   }
+   
+   .sidebar-menu li:hover {
+     background-color: #f1f5f9;
+     color: #0f172a;
+   }
+   
+   .sidebar-menu li.active {
+     background-color: #2563eb !important;
+     color: #ffffff !important;
+     box-shadow: 0 4px 12px rgba(37, 99, 235, 0.2);
+   }
+   
+   .menu-icon {
+     margin-right: 12px;
+     font-size: 18px;
+     display: flex;
+     align-items: center;
+     color: inherit;
+     flex-shrink: 0;
+   }
+   
+   .menu-label {
+     white-space: nowrap;
+     overflow: hidden;
+     text-overflow: ellipsis;
+   }
+   
+   /* 👥 Menyu orasidagi chiroyli ajratuvchi chiziq */
+   .menu-divider {
+     height: 1px;
+     background-color: #e2e8f0;
+     margin: 10px 4px !important;
+     padding: 0 !important;
+     pointer-events: none; /* Bosib bo'lmaydi */
+   }
+   
+   /* ==========================================================================
+      👤 YANTAK MENU PROFIL TUGMASI (AVATAR USLUBIDA)
+      ========================================================================== */
+   .profile-menu-item {
+     margin-top: 4px;
+   }
+   
+   /* Profil ichidagi kichik chiroyli avatar aylana */
+   .menu-avatar {
+     width: 22px;
+     height: 22px;
+     background-color: #2563eb;
+     color: #ffffff;
+     border-radius: 50%;
+     display: flex;
+     align-items: center;
+     justify-content: center;
+     font-size: 11px;
+     font-weight: 700;
+     margin-right: 12px;
+     flex-shrink: 0;
+     transition: all 0.2s ease;
+   }
+   
+   /* Profil faol bo'lganda avatar oq ranga va fon rangiga moslashadi */
+   .profile-menu-item.active .menu-avatar {
+     background-color: #ffffff;
+     color: #2563eb;
+   }
+   
+   .profile-menu-item:hover .menu-avatar {
+     transform: scale(1.05);
+   }
+   
+   /* ==========================================================================
+      📱 MOBIL RESPONSIVE (800PX)
+      ========================================================================== */
+   @media (max-width: 800px) {
+     .custom-sidebar {
+       transform: translateX(-100%);
+     }
+     
+     .custom-sidebar.mobile-open {
+       transform: translateX(0);
+       box-shadow: 10px 0 30px rgba(15, 23, 42, 0.15);
+     }
+   }

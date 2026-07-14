@@ -1,0 +1,263 @@
+/* ==========================================================================
+   💻 DESKTOP REJIM (KOMPYUTER UCHUN TURG'UN SIDEBAR)
+   ========================================================================== */
+   .dash-sidebar {
+    width: 280px;
+    background-color: #ffffff;
+    border-right: 1px solid #e2e8f0;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 24px 16px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    z-index: 999;
+    box-sizing: border-box;
+  }
+  
+  .sidebar-top-section {
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+  }
+  
+  .sidebar-logo {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 4px 8px;
+  }
+  
+  .logo-icon-box {
+    width: 40px;
+    height: 40px;
+    background: linear-gradient(135deg, #2563eb 0%, #1d4ed8 100%);
+    color: #ffffff;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 12px rgba(37, 99, 235, 0.2);
+  }
+  
+  .logo-text h2 {
+    font-size: 16px;
+    font-weight: 800;
+    color: #1e293b;
+    margin: 0;
+  }
+  
+  .logo-text span {
+    font-size: 11px;
+    font-weight: 600;
+    color: #94a3b8;
+    text-transform: uppercase;
+  }
+  
+  .sidebar-menu {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+  
+  .menu-item {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    background: none;
+    border: none;
+    padding: 12px 16px;
+    border-radius: 12px;
+    cursor: pointer;
+    width: 100%;
+    position: relative;
+    text-align: left;
+    transition: all 0.2s ease;
+  }
+  
+  .menu-item span {
+    font-size: 14px;
+    font-weight: 500;
+    color: #64748b;
+  }
+  
+  .icon-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #94a3b8;
+  }
+  
+  .icon-wrapper .icon {
+    font-size: 18px;
+  }
+  
+  /* Mobil profil tugmasi desktopda yashirin bo'ladi */
+  .mobile-profile-btn {
+    display: none;
+  }
+  
+  /* Active Status */
+  .menu-item.active {
+    background-color: #eff6ff;
+  }
+  
+  .menu-item.active span {
+    color: #2563eb;
+    font-weight: 600;
+  }
+  
+  .menu-item.active .icon-wrapper {
+    color: #2563eb;
+  }
+  
+  .active-indicator {
+    position: absolute;
+    right: 0;
+    top: 12px;
+    bottom: 12px;
+    width: 4px;
+    background-color: #2563eb;
+    border-radius: 4px 0 0 4px;
+  }
+  
+  .sidebar-footer {
+    padding-top: 16px;
+    border-top: 1px solid #f1f5f9;
+  }
+  
+  .user-profile-card {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 12px;
+    background-color: #f8fafc;
+    border-radius: 16px;
+    border: 1px solid #f1f5f9;
+  }
+  
+  .user-avatar {
+    width: 40px;
+    height: 40px;
+    background-color: #e0f2fe;
+    color: #0369a1;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+  }
+  
+  .user-info {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+  }
+  
+  .user-name {
+    font-size: 14px;
+    font-weight: 600;
+    color: #1e293b;
+  }
+  
+  .user-role {
+    font-size: 12px;
+    color: #94a3b8;
+  }
+  
+  .sidebar-logout-shortcut {
+    background: none;
+    border: none;
+    color: #94a3b8;
+    cursor: pointer;
+    font-size: 16px;
+    padding: 6px;
+    border-radius: 6px;
+  }
+  
+  .sidebar-logout-shortcut:hover {
+    background-color: #fee2e2;
+    color: #ef4444;
+  }
+  
+  
+  /* ==========================================================================
+     📱 MOBIL SMARTFON REJIMI (800PX PASYDA - BOTTOM NAVBARGA AYLANISHI)
+     ========================================================================== */
+  @media (max-width: 800px) {
+    
+    .dash-sidebar {
+      position: fixed !important;
+      top: auto !important;
+      bottom: 0 !important;
+      left: 0 !important;
+      right: 0 !important;
+      width: 100vw !important;
+      height: 72px !important;
+      background-color: #ffffff !important;
+      border-right: none !important;
+      border-top: 1px solid #e2e8f0 !important;
+      padding: 0 8px !important;
+      flex-direction: row !important;
+      justify-content: center !important;
+      align-items: center !important;
+      z-index: 99999 !important;
+      box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.05) !important;
+    }
+  
+    /* Keraksiz desktop qismlarini yashiramiz */
+    .sidebar-top-section,
+    .sidebar-footer,
+    .active-indicator {
+      display: none !important;
+    }
+  
+    .sidebar-menu {
+      flex-direction: row !important;
+      width: 100% !important;
+      justify-content: space-between !important;
+      gap: 0 !important;
+    }
+  
+    .menu-item {
+      flex-direction: column !important;
+      align-items: center !important;
+      justify-content: center !important;
+      gap: 4px !important;
+      padding: 6px 0 !important;
+      width: 19% !important; /* 5 ta tugma uchun ideal kenglik */
+      border-radius: 8px !important;
+      text-align: center !important;
+      background: transparent !important;
+    }
+  
+    /* Mobil profil tugmasini faollashtiramiz */
+    .mobile-profile-btn {
+      display: flex !important;
+    }
+  
+    .menu-item span {
+      font-size: 10px !important;
+      font-weight: 500 !important;
+    }
+  
+    .icon-wrapper .icon {
+      font-size: 18px !important;
+    }
+  
+    .menu-item.active {
+      background-color: transparent !important;
+    }
+  
+    .menu-item.active span {
+      color: #2563eb !important;
+    }
+  
+    .menu-item.active .icon-wrapper {
+      color: #2563eb !important;
+      transform: translateY(-2px);
+      transition: transform 0.2s ease;
+    }
+  }
